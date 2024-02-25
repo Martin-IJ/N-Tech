@@ -12,6 +12,7 @@ import NewsLetter from './components/NewsLetter';
 import Footer from './components/Footer';
 import ScrollToTop from "react-scroll-to-top";
 import OurServices from './components/OurServices';
+import Testimonial from './components/Testimonial';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <WhyPage />
       <Prototype />
       <HowPage />
+      <Testimonial />
       {/* <Team />
       <Packages /> */}
       <NewsLetter />

@@ -3,7 +3,7 @@ import ourServices from "../db/OurServicesDb";
 
 const OurServices = () => {
   return (
-    <div className="bg-white py-10 overflow-hidden">
+    <div name="ourServices" className="bg-white py-10 overflow-hidden">
       <div className="max-w-[85%] w-full m-auto text-center space-y-7">
         <div className="flex flex-wrap items-center justify-center gap-5 m-auto">
           {ourServices.map((services) => {

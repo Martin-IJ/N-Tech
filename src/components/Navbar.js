@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky z-40 inset-x-0 top-0 h-[100px] nav-container flex justify-center bg-[rgba(230,245,255,0.5)] backdrop-blur-lg">
+    <div name="navbar" className="sticky z-40 inset-x-0 top-0 h-[100px] nav-container flex justify-center bg-[rgba(230,245,255,0.5)] backdrop-blur-lg">
       <div className="max-w-[85%] w-[100%] flex justify-between items-center text-main-color">
         <Link to="home" smooth={true} duration={500}>
           <img src={Logo} alt="logo" className="w-[150px] cursor-pointer" />
@@ -48,6 +48,17 @@ const Navbar = () => {
               </li>
             </Link>
             <Link
+              to="ourServices"
+              smooth={true}
+              duration={500}
+              className="w-full md:w-auto cursor-pointer"
+              onClick={closeNavbar}
+            >
+              <li className="py-5 w-full text-lg hover:text-[#710CF6]">
+                Services
+              </li>
+            </Link>
+            <Link
               to="contact"
               smooth={true}
               duration={500}
@@ -58,21 +69,10 @@ const Navbar = () => {
                 Contact Us
               </li>
             </Link>
-            <Link
-              to="services"
-              smooth={true}
-              duration={500}
-              className="w-full md:w-auto cursor-pointer"
-              onClick={closeNavbar}
-            >
-              <li className="py-5 w-full text-lg hover:text-[#710CF6]">
-                Services
-              </li>
-            </Link>
           </ul>
         </div>
 
-        <button className="hidden md:block bg-main-color hover:bg-faded-black active:bg-main-color text-white font-semibold py-2 px-5">
+        <button className="hidden md:block rounded-md bg-[#4b0ba0] hover:bg-default active:bg-[#4b0ba0] duration-200 ease-in-out text-white font-semibold py-2 px-5">
           <Link to="contact" smooth={true} duration={500}>
             Work with Us
           </Link>
@@ -116,6 +116,17 @@ const Navbar = () => {
                 </li>
               </Link>
               <Link
+                to="ourServices"
+                smooth={true}
+                duration={500}
+                className="cursor-pointer"
+                onClick={closeNavbar}
+              >
+                <li className="py-5 w-full text-lg hover:text-[#710CF6] hover:bg-slate-200 px-8">
+                  Services
+                </li>
+              </Link>
+              <Link
                 to="contact"
                 smooth={true}
                 duration={500}
@@ -126,18 +137,7 @@ const Navbar = () => {
                   Contact Us
                 </li>
               </Link>
-              <Link
-                to="services"
-                smooth={true}
-                duration={500}
-                className="cursor-pointer"
-                onClick={closeNavbar}
-              >
-                <li className="py-5 w-full text-lg hover:text-[#710CF6] hover:bg-slate-200 px-8">
-                  Services
-                </li>
-              </Link>
-              <button className="md:hidden mx-8 bg-main-color hover:bg-faded-black active:bg-main-color text-white font-semibold py-5 px-20 rounded-md">
+              <button className="md:hidden mx-8 bg-[#4b0ba0] hover:bg-default active:bg-[#4b0ba0] duration-200 ease-in-out text-white font-semibold py-5 px-20 rounded-md">
                 <Link
                   to="contact"
                   smooth={true}
