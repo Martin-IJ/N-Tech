@@ -1,5 +1,7 @@
 import React from "react";
 import ourServices from "../db/OurServicesDb";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 const OurServices = () => {
   return (
@@ -9,7 +11,11 @@ const OurServices = () => {
           {ourServices.map((services) => {
             const { id, title, image } = services;
             return (
-              <div
+              <motion.div
+              variants={fadeIn("left", 0)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.4 }}
                 key={id}
                 className="relative group m-auto h-[200px] w-full md:w-[200px] overflow-hidden rounded-2xl"
               >
@@ -23,7 +29,7 @@ const OurServices = () => {
                   className="group-hover:-rotate-12 group-hover:scale-125 transition ease-in delay-75 h-full w-full bg-cover bg-center"
                   style={{ backgroundImage: `url(${image})` }}
                 ></div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

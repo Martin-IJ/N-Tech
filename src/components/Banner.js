@@ -1,5 +1,8 @@
 import React from "react";
 import Laptop from "../assets/macbook.png";
+import star from "../assets/Star 1.png";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 import { Link } from "react-scroll";
 
 const Banner = () => {
@@ -10,11 +13,14 @@ const Banner = () => {
       style={{ height: "calc(100vh - 100px)" }}
     >
       <div className="max-w-[85%] m-auto flex justify-center gap-5 items-center">
-        <div className=" w-full lg:w-[55%] text-center lg:text-start space-y-10 lg:space-y-5">
-          <h1 className="text-6xl md:text-8xl font-semibold ">
+        <div className="w-full lg:w-[55%] text-center lg:text-start space-y-10 lg:space-y-5">
+          <h1 className="relative text-6xl md:text-8xl font-semibold ">
             Build Strong <br />
             <span className="textGradient">Relationship</span> <br />
             with Client
+            <div className="absolute -top-2 right-2 md:-top-3 md:-right-7 lg:right-5 -z-10">
+              <img src={star} alt="star" className="w-[50px] md:w-[80px]" />
+            </div>
           </h1>
           <p className="text-main-color">
             Our web design company specializes in the Professional <br />{" "}
@@ -29,7 +35,15 @@ const Banner = () => {
         </div>
 
         <div className="hidden lg:block w-full lg:w-[45%]">
-          <img src={Laptop} alt="laptop" className="" />
+          <motion.img
+            variants={fadeIn("left", 0)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.4 }}
+            src={Laptop}
+            alt="laptop"
+            className=""
+          />
         </div>
       </div>
     </div>

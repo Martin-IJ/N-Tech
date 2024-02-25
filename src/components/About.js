@@ -1,5 +1,7 @@
 import React from "react";
 import phone from "../assets/aboutPhone.png";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 const About = () => {
   return (
@@ -7,8 +9,17 @@ const About = () => {
       <div className="max-w-[85%] w-full m-auto py-10">
         <div className="w-full lg:flex gap-10 space-y-10 lg:space-y-0 items-center text-center lg:text-start">
           <div className="w-full lg:w-[50%]">
-            <img src={phone} alt="" className="w-[400px] mx-auto" />
+            <motion.img
+              variants={fadeIn("right", 0)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.4 }}
+              src={phone}
+              alt=""
+              className="w-[400px] mx-auto"
+            />
           </div>
+          
           <div className="w-full lg:w-[50%] flex flex-col gap-7">
             <h1 className="text-5xl font-semibold">
               We Are Professional Digital Team

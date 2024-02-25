@@ -16,14 +16,17 @@ const Navbar = () => {
   };
 
   return (
-    <div name="navbar" className="sticky z-40 inset-x-0 top-0 h-[100px] nav-container flex justify-center bg-[rgba(230,245,255,0.5)] backdrop-blur-lg">
+    <div className="sticky z-40 inset-x-0 top-0 h-[100px] nav-container flex justify-center bg-[rgba(230,245,255,0.7)] backdrop-blur-lg">
       <div className="max-w-[85%] w-[100%] flex justify-between items-center text-main-color">
         <Link to="home" smooth={true} duration={500}>
           <img src={Logo} alt="logo" className="w-[150px] cursor-pointer" />
         </Link>
 
         <div>
-          <div className="md:hidden text-2xl" onClick={openNavbar}>
+          <div
+            className="md:hidden cursor-pointer text-2xl"
+            onClick={openNavbar}
+          >
             <GiHamburgerMenu />
           </div>
           <ul className="hidden md:flex items-center font-semibold md:space-x-5 lg:space-x-12">
@@ -88,7 +91,10 @@ const Navbar = () => {
             }  bg-white shadow-2xl w-[350px] h-screen font-semibold transition-all duration-1000 ease-in-out`}
           >
             <div className="w-full h-[100px] flex items-center px-8 justify-between">
-              <div className="md:hidden text-3xl" onClick={closeNavbar}>
+              <div
+                className="md:hidden text-3xl cursor-pointer"
+                onClick={closeNavbar}
+              >
                 <IoCloseSharp />
               </div>
             </div>

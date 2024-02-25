@@ -35,7 +35,8 @@ const Testimonial = () => {
             const { id, avatar, name, description, message } = data;
 
             return (
-              <Card key={id}
+              <Card
+                key={id}
                 color="transparent"
                 shadow={false}
                 className="w-full min-w-full md:min-w-[50%] md:w-[50%] p-10 shadow-xl"
@@ -65,15 +66,11 @@ const Testimonial = () => {
                         <StarIcon />
                       </div>
                     </div>
-                    <Typography color="blue-gray">
-                      {description}
-                    </Typography>
+                    <Typography color="blue-gray">{description}</Typography>
                   </div>
                 </CardHeader>
                 <CardBody className="mb-6 p-0">
-                  <Typography>
-                    &quot;{message}&quot;
-                  </Typography>
+                  <Typography>&quot;{message}&quot;</Typography>
                 </CardBody>
               </Card>
             );
