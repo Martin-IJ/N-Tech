@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.gradient {
+  background: linear-gradient(
+    45deg,
+    #406aff 21.43%,
+    #3bace2 50.63%,
+    #b936ee 100%,
+    #ff56f6 117.04%
+  );
+}
+
+.scroll {
+  display: flex;
+  align-items: center;
+  width: 50px !important;
+  justify-content: center;
+  height: 50px !important;
+  border-radius: 50% !important;
+  margin-bottom: 3rem !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+@layer base {
+  .textGradient {
+    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#710CF6] to-[#D016D7] font-bold;
+  }
+}
