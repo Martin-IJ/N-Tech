@@ -9,18 +9,24 @@ const Banner = () => {
   return (
     <div
       name="home"
-      className="relative isolate bg-bgrc-color flex text-main-color overflow-hidden"
-      style={{ height: "calc(100vh - 100px)" }}
+      className="bannerHeight relative isolate bg-bgrc-color flex text-main-color overflow-hidden"
+      // style={{ height: "calc(100vh - 100px)" }}
     >
       <div className="max-w-[85%] m-auto flex justify-center gap-5 items-center">
         <div className="w-full lg:w-[55%] text-center lg:text-start space-y-10 lg:space-y-5">
-          <h1 className="relative text-6xl md:text-8xl font-semibold ">
-            Build Strong <br />
-            <span className="textGradient">Relationship</span> <br />
+          <h1 className="text-6xl md:text-8xl font-semibold ">
+            <span className="relative">
+              Build Strong
+              <div className="absolute -top-1 -right-5 md:-top-2 md:-right-9 -z-10">
+                <img src={star} alt="star" className="w-[50px] md:w-[80px]" />
+              </div>
+            </span>
+            <br />
+            <span className="textGradient bannerGradientText">
+              Relationship
+            </span>
+            <br />
             with Client
-            <div className="absolute -top-2 right-2 md:-top-3 md:-right-7 lg:right-5 -z-10">
-              <img src={star} alt="star" className="w-[50px] md:w-[80px]" />
-            </div>
           </h1>
           <p className="text-main-color">
             Our web design company specializes in the Professional <br />{" "}

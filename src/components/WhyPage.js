@@ -2,6 +2,8 @@ import React from "react";
 import { PiAtomThin } from "react-icons/pi";
 import { LiaPeopleCarrySolid } from "react-icons/lia";
 import { TbWorldCode } from "react-icons/tb";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 const WhyPage = () => {
   return (
@@ -13,7 +15,13 @@ const WhyPage = () => {
           reliable corporate website developer
         </p>
         <div className="flex justify-center lg:justify-between flex-wrap gap-10">
-          <div className="bg-[#E4DEFD] rounded-xl p-10 w-full md:w-[70%] lg:w-[30%]">
+          <motion.div
+            variants={fadeIn("right", 0)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.4 }}
+            className="bg-[#E4DEFD] rounded-xl p-10 w-full md:w-[70%] lg:w-[30%]"
+          >
             <div className="bg-white inline-flex p-4 rounded-full hover:text-default text-4xl">
               <PiAtomThin />
             </div>
@@ -22,8 +30,14 @@ const WhyPage = () => {
               Many years of work in this field is an excellent indicator that
               companies trust us and in response we offer unique solutions.
             </p>
-          </div>
-          <div className="bg-[#DEFDEB] rounded-xl p-10 w-full md:w-[70%] lg:w-[30%]">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("down", 0)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.4 }}
+            className="bg-[#DEFDEB] rounded-xl p-10 w-full md:w-[70%] lg:w-[30%]"
+          >
             <div className="bg-white inline-flex p-4 rounded-full hover:text-default text-4xl">
               <LiaPeopleCarrySolid />
             </div>
@@ -33,8 +47,14 @@ const WhyPage = () => {
               ideas to life in the best possible way and with flexible
               functionality.
             </p>
-          </div>
-          <div className="bg-[#FDEEDE] rounded-xl p-10 w-full md:w-[70%] lg:w-[30%]">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("left", 0)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.4 }}
+            className="bg-[#FDEEDE] rounded-xl p-10 w-full md:w-[70%] lg:w-[30%]"
+          >
             <div className="bg-white inline-flex p-4 rounded-full hover:text-default text-4xl">
               <TbWorldCode />
             </div>
@@ -45,7 +65,7 @@ const WhyPage = () => {
               Individual approach to your project. flexible solutions for your
               tasks to achieve your goals on the path to success.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

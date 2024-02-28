@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import customersReview from "../db/TestimonialDb";
 import {
   Card,
@@ -26,11 +26,64 @@ function StarIcon() {
 }
 
 const Testimonial = () => {
+  const containerRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        } else {
+          setIsInView(false);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isInView && containerRef.current) {
+      const intervalId = setInterval(() => {
+        const newScrollLeft = containerRef.current.scrollLeft + 1;
+
+        if (newScrollLeft >= containerRef.current.scrollWidth) {
+          containerRef.current.scrollLeft = 0;
+        } else {
+          containerRef.current.scrollLeft = newScrollLeft;
+        }
+      }, 20);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [isInView]);
+
   return (
     <div className="bg-white py-10 overflow-x-hidden">
       <div className="md:max-w-[85%] w-full mx-auto flex flex-col items-center">
         <Typography className="text-4xl font-semibold">Testimonial</Typography>
-        <div className="w-full flex px-5 md:px-7 py-10 gap-5 overflow-x-auto">
+        <div
+          ref={containerRef}
+          className="w-full flex px-5 md:px-7 py-10 gap-5 overflow-x-auto"
+          style={{
+            overflowX: "auto",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
           {customersReview.map((data) => {
             const { id, avatar, name, description, message } = data;
 
@@ -75,92 +128,6 @@ const Testimonial = () => {
               </Card>
             );
           })}
-          {/* <Card
-            color="transparent"
-            shadow={false}
-            className="w-full min-w-full md:min-w-0 md:w-[50%] p-10 shadow-xl"
-          >
-            <CardHeader
-              color="transparent"
-              floated={false}
-              shadow={false}
-              className="mx-0 flex items-center gap-4 pt-0 pb-8"
-            >
-              <Avatar
-                size="lg"
-                variant="circular"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                alt="tania andrew"
-              />
-              <div className="flex w-full flex-col gap-0.5">
-                <div className="flex items-center justify-between">
-                  <Typography variant="h5" color="blue-gray">
-                    Tania Andrew
-                  </Typography>
-                  <div className="5 flex items-center gap-0">
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                  </div>
-                </div>
-                <Typography color="blue-gray">
-                  Frontend Lead @ Google
-                </Typography>
-              </div>
-            </CardHeader>
-            <CardBody className="mb-6 p-0">
-              <Typography>
-                &quot;I found solution to all my design needs from Creative Tim.
-                I use them as a freelancer in my hobby projects for fun! And its
-                really affordable, very humble guys !!!&quot;
-              </Typography>
-            </CardBody>
-          </Card>
-          <Card
-            color="transparent"
-            shadow={false}
-            className="w-full min-w-full md:min-w-0 md:w-[50%] p-10 shadow-xl"
-          >
-            <CardHeader
-              color="transparent"
-              floated={false}
-              shadow={false}
-              className="mx-0 flex items-center gap-4 pt-0 pb-8"
-            >
-              <Avatar
-                size="lg"
-                variant="circular"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                alt="tania andrew"
-              />
-              <div className="flex w-full flex-col gap-0.5">
-                <div className="flex items-center justify-between">
-                  <Typography variant="h5" color="blue-gray">
-                    Tania Andrew
-                  </Typography>
-                  <div className="5 flex items-center gap-0">
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                  </div>
-                </div>
-                <Typography color="blue-gray">
-                  Frontend Lead @ Google
-                </Typography>
-              </div>
-            </CardHeader>
-            <CardBody className="mb-6 p-0">
-              <Typography>
-                &quot;I found solution to all my design needs from Creative Tim.
-                I use them as a freelancer in my hobby projects for fun! And its
-                really affordable, very humble guys !!!&quot;
-              </Typography>
-            </CardBody>
-          </Card> */}
         </div>
       </div>
     </div>

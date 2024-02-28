@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Logo from "../assets/IMG_8764.PNG";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
+import { RiTwitterXFill } from "react-icons/ri";
+import {
+  BiLogoFacebook,
+  BiLogoLinkedin,
+  BiLogoInstagram,
+} from "react-icons/bi";
 import { Link } from "react-scroll";
 
 const Navbar = () => {
@@ -16,7 +22,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky z-40 inset-x-0 top-0 h-[100px] nav-container flex justify-center bg-[rgba(230,245,255,0.7)] backdrop-blur-lg">
+    <div className="navbarPosition z-40 inset-x-0 top-0 h-[100px] nav-container flex justify-center bg-[rgba(230,245,255,0.7)] backdrop-blur-lg">
+      {/* Desktop Navbar */}
       <div className="max-w-[85%] w-[100%] flex justify-between items-center text-main-color">
         <Link to="home" smooth={true} duration={500}>
           <img src={Logo} alt="logo" className="w-[150px] cursor-pointer" />
@@ -82,9 +89,9 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile */}
+      {/* Mobile Navbar */}
       {navbarOpen && (
-        <div className="absolute md:hidden w-full flex justify-end">
+        <div className="absolute z-50 md:hidden w-full flex justify-end">
           <div
             className={`${
               navbarOpen ? "translate-x-0" : "-translate-x-full"
@@ -98,6 +105,8 @@ const Navbar = () => {
                 <IoCloseSharp />
               </div>
             </div>
+
+            {/* Nav Links */}
             <ul className="">
               <Link
                 to="home"
@@ -154,6 +163,16 @@ const Navbar = () => {
                 </Link>
               </button>
             </ul>
+
+            {/* Social Icons */}
+            <div className="absolute bottom-0 inset-x-0 flex justify-center items-end pb-5">
+              <div className="flex gap-5 text-2xl">
+                <BiLogoFacebook className="hover:text-default cursor-pointer" />
+                <BiLogoInstagram className="hover:text-default cursor-pointer" />
+                <RiTwitterXFill className="hover:text-default cursor-pointer" />
+                <BiLogoLinkedin className="hover:text-default cursor-pointer" />
+              </div>
+            </div>
           </div>
         </div>
       )}

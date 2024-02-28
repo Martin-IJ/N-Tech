@@ -7,7 +7,7 @@ const NewsLetter = () => {
 
   return (
     <div name="newsletter" className="bg-white overflow-hidden pb-20">
-      <div className="newsletterBgr max-w-[85%] w-full m-auto text-center py-10 px-3 md:py-32 md:px-7 rounded-[1.5rem] md:rounded-[4rem]">
+      <div className="newsletterBgr max-w-[85%] w-full m-auto text-center py-10 px-5 md:py-32 md:px-7 rounded-[1.5rem] md:rounded-[4rem]">
         <h1 className="text-5xl text-white">
           Be <span className="textGradient">Up to Date</span> With New Events
         </h1>
@@ -23,7 +23,7 @@ const NewsLetter = () => {
             placeholder="Email"
             className="border text-white w-full bg-transparent py-3 px-7 rounded-[4rem]"
           />
-          <button type="submit" className="w-full md:w-auto go-border text-white py-3 px-12">
+          <button type="submit" className=" go-border text-white py-3 px-12">
             Go
           </button>
         </form>

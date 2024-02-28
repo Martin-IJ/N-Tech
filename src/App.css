@@ -68,3 +68,26 @@
   border-radius: 50%;
   background-color: #FFC91C;
 }
+
+/* Banner */
+.bannerHeight {
+  height: calc(100vh - 100px);
+}
+
+/* Navbar */
+.navbarPosition {
+  position: sticky;
+}
+
+@media screen and (max-height: 590px) {
+  .bannerHeight {height: 100%; padding: 50px 0;}
+}
+
+@media screen and (max-height: 400px) {
+  .navbarPosition {position: static;}
+}
+
+/* Banner Media Query */
+@media screen and (max-width: 390px) {
+  .bannerGradientText {font-size: 3rem;}
+}

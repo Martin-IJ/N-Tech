@@ -46,9 +46,7 @@ const Footer = () => {
             <BiLogoFacebook className="hover:text-default cursor-pointer" />
             <BiLogoInstagram className="hover:text-default cursor-pointer" />
             <RiTwitterXFill className="hover:text-default cursor-pointer" />
-            <a href="https://www.linkedin.com/company/27037956/admin/feed/posts/">
-              <BiLogoLinkedin className="hover:text-default cursor-pointer" />
-            </a>
+            <BiLogoLinkedin className="hover:text-default cursor-pointer" />
           </div>
         </div>
 
